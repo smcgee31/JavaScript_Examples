@@ -1,16 +1,7 @@
 //    fibonacci sequence
-// number entered is the limit of the sequence
+// number entered is the length limit of the sequence
 
-// 0+1 = 1
-// 1+1 = 2
-// 1+2 = 3
-// 2+3 = 5
-// prevNum(3)+newNum(5) = result(8)
-// 5+8 = 13
-// 8+13 = 21
-//so the sequence is 1,1,2,3,5,8,13,21
-// prevNum + newNum = result
-
+// -------- this is the big clunky way -------- //
 function fib(len){
     var seq = [1];
     var prevNum = 1;
@@ -23,5 +14,16 @@ function fib(len){
         newNum = result;
     }
 }
-
 console.log(fib(8));
+//--------------------------------------------//
+
+
+// ------ this is the more elegant way ------ //
+function fibIt(len){
+    var arr = [0,1];
+    for(var i = 2; i < len + 1; i++){
+        arr.push(arr[i - 1] + arr[i - 2]);
+    }
+}
+console.log(fibIt(8));
+//--------------------------------------------//

@@ -17,6 +17,4 @@ redPaintCanFactory();
 bluePaintCanFactory();
 greenPaintCanFactory();
 
-
-
 //  the "closure" allows us to build a function that will produce a "color factory" for each color called for.
