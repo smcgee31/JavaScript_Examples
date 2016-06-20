@@ -3,13 +3,13 @@
 
 function createPainterTeam(teamName) {
 var members = [];
-  return function(teamMemberName) {
-    members.push(teamMemberName);
-    return {
-      tName: teamName,
-      roster: members
-    }
-  }
+    return function(teamMemberName) {
+        members.push(teamMemberName);
+        return {
+            tName: teamName,
+            roster: members
+        };
+    };
 }
 
 var bobRossesFn = createPainterTeam("Bob Rosses");

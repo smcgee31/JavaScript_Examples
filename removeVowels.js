@@ -9,7 +9,7 @@ function remVowels(str) {
     str.split('');
     str.forEach(function() {
 
-    })
+    });
 }
 
 
@@ -64,7 +64,7 @@ console.log(cleanUp("La Dia Es Bonita"));
 
 function removeVowels(str){
  var vowels = ["a", "e", "i", "o", "u"];
- var newStr = str.split("")
+ var newStr = str.split("");
  for (var i = newStr.length - 2; i > 0; i--){
    if(vowels.indexOf(newStr[i]) !== -1){
      newStr.splice(i, 1);

@@ -9,20 +9,25 @@
 
 
 function rps(yourChoice) {
-    var choices = ['rock', 'paper', 'sissors'];
+    var choices = ['rock', 'paper', 'scissors'];
     var choiceNum = Math.floor(Math.random() * (3 - 0)) + 0;
     var compChoice = choices[choiceNum];
-    if (yourChoice === 'rock' && compChoice === 'scissors') {
-        console.log('You WIN!!');
+    if (yourChoice === 'rock' && compChoice === 'scissors' || yourChoice === 'scissors' && compChoice === 'paper' || yourChoice === 'paper' && compChoice === 'rock') {
+        console.log('You WIN against ' + compChoice);
     }
-    if (yourChoice === 'rock' && compChoice === 'paper') {
-        console.log('You LOSE!!');
-    }
-    if (yourChoice === 'rock' && compChoice === 'rock') {
+    else if (yourChoice === 'rock' && compChoice === 'rock' || yourChoice === 'scissors' && compChoice === 'scissors' || yourChoice === 'paper' && compChoice === 'paper') {
         console.log('Its a TIE!!');
+    }
+    else {
+        console.log('You LOSE against ' + compChoice);
     }
 
 }
+rps('paper');
+
+
+
+
 
 
 

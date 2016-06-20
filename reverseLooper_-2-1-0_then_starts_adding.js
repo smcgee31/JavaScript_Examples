@@ -20,7 +20,7 @@ function reversedLooper(array) {
             newArray.push(array[i]);
         }
         else {
-            newArray.push(array[i] + n)
+            newArray.push(array[i] + n);
         }
     }
     return newArray;

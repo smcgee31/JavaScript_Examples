@@ -9,7 +9,7 @@
     function starWarsService($http, $q) {
         this.getPerson = getPerson;
 
-        var baseUrl = "http://swapi.co/api/"
+        var baseUrl = "http://swapi.co/api/";
 
         ////////////////
 
@@ -20,7 +20,7 @@
 
             $http.get(baseUrl + "people/1")
                 .then(function(response) {
-                    var starships = response.data.starships
+                    var starships = response.data.starships;
 
                     var starshipsReturn = 0;
 
@@ -33,10 +33,10 @@
                                 if(starshipsReturn === starships.length){
                                     defer.resolve(response);
                                 }
-                            })
+                            });
                             }(i));
                     }
-                })
+                });
 
             return defer.promise;
         }
