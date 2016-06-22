@@ -16,6 +16,8 @@ function testTime(arr){
 console.log("testTime: " , testTime(list));
 
 
+
+// Solution #2
 function testTime2(arr){
   var obj = {Total: 0, Avg: 0};
   arr.forEach(function(value, index){
@@ -28,6 +30,8 @@ function testTime2(arr){
 console.log("testTime2: " , testTime2(list));
 
 
+
+// Solution #3
 function testTime3(arr){
   var newarr = arr.join("");
   return {Total: newarr.length, Avg: (newarr.length/arr.length)};
