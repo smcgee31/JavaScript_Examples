@@ -1,19 +1,28 @@
-// Write a function that takes in an array of nested arrays of unknown depth and
-// returns the flattened array.
-
-var arr = [1, [2, 3, [4], [5, 6, 7]], 8];
-// returns [1, 2, 3, 4, 5, 6, 7, 8]
-
+// You are going to be given a word. Your job is to return the middle character of the word.
+// If the word's length is odd, return the middle character. If the word's length is even,
+// return the middle 2 characters.
 
 // Solution #1
-function flatten(arr) {
-  var newArr;
-  if (Array.isArray(arr)) {
-    return (newArr = []).concat.apply(newArr, arr.map(flatten));
+function getMiddle(s) {
+  if (s.length === 1 || s.length === 2) {
+    return s;
   }
-  return arr;
+  if (s.length % 2 !== 0) {
+    return s.charAt((Math.floor(s.length/2)));
+  } else {
+    return (s.charAt(s.length / 2 - 1) + s.charAt(s.length / 2));
+  }
 }
 
+// Solution #2 - same as above just using a Conditional Operator to shorten the code
+function getMiddle2(s) {
+  if (s.length === 1 || s.length === 2) {
+    return s;
+  }
+  return (s.length % 2 !== 0) ? s.charAt((Math.floor(s.length/2))) : (s.charAt(s.length / 2 - 1) + s.charAt(s.length / 2));
+}
 
-// Solution #2
-const flatten2 = (arr) => Array.isArray(arr) ? [].concat(...arr.map(flatten2)) : arr ;
+// Solution #3 - same as above but realized that the first if statement was unecessary because the math takes care of it anyway.
+function getMiddle(s) {
+  return (s.length % 2 !== 0) ? s.charAt((Math.floor(s.length/2))) : (s.charAt(s.length / 2 - 1) + s.charAt(s.length / 2));
+}
