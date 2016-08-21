@@ -19,7 +19,11 @@ isIsogram('Dermatoglyphics');
 
 
 //OPTION #2
-
+const isIsogram2 = (str) => {
+  str.findIndex( (a, b) => {
+    if (a === b) {return true;}
+  });
+}
 
 
 
