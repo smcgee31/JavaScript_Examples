@@ -65,13 +65,13 @@ const revString7 = (str) => {
 // use recursion
 const revString8 = (str) => {
   if (str === '') {return '';}
-  else {return revString3(str.substr(1)) + str.charAt(0);}
+  else {return revString8(str.substr(1)) + str.charAt(0);}
 };
 
 // method #8a
 // same as above but using a conditional operator (ternary)
 const revString8a = (str) => {
-  return (str === '') ? '' : revString5(str.substr(1)) + str.charAt(0);
+  return (str === '') ? '' : revString8a(str.substr(1)) + str.charAt(0);
 };
 
 // method #9

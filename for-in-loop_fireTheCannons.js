@@ -14,8 +14,8 @@ var a = {
 	};
 
 
-
-const cannonsReady = ( gunners ) => {
+// my solution
+const cannonsReady1 = ( gunners ) => {
 	for ( let res in gunners ) {
 		if ( !gunners.hasOwnProperty( res ) ) { continue; }
 		if ( gunners[ res ] === 'nay' ) {
@@ -26,15 +26,18 @@ const cannonsReady = ( gunners ) => {
 };
 
 
-const cannonsReady = ( gunners ) => {
+// second solution
+const cannonsReady2 = ( gunners ) => {
 	return Object.values( gunners ).some( m => m === 'nay' ) ? 'Shiver me timbers!' : 'Fire!';
 };
 
 
-const cannonsReady = a => Object.keys( a ).every( g => a[ g ] === "aye" ) ? "Fire!" : "Shiver me timbers!";
+// third solution
+const cannonsReady3 = a => Object.keys( a ).every( g => a[ g ] === "aye" ) ? "Fire!" : "Shiver me timbers!";
 
 
-const cannonsReady = ( gunners ) => {
+// fouth solution
+const cannonsReady4 = ( gunners ) => {
 	console.log( gunners );
 	var arr = Object.keys( gunners ),
 		count = 0;
@@ -42,4 +45,16 @@ const cannonsReady = ( gunners ) => {
 		if ( gunners[ arr[ i ] ] == 'aye' ) count++;
 
 	return count == arr.length ? 'Fire!' : 'Shiver me timbers!';
-}
+};
+
+
+// fifth soluion
+const cannonsReady5 = (gunners) => {
+  const ready = Object.keys(gunners).filter((gunner) => {
+    if(gunners[gunner] === "aye"){
+      return true;
+    }
+  });
+  console.log(ready);
+  return ready.length === Object.keys(gunners).length ? "Fire!" : "Shiver me timbers!";
+};
