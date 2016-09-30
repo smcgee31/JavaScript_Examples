@@ -9,4 +9,14 @@ function palindrome(str) {
   return (newStr === revNewStr);
 }
 
-palindrome("eye");
+palindrome("race car");
+
+
+// Solution #2 - mine
+// same as above just turned into a one-liner
+function palindrome2(str) {
+  return ((newStr = str.replace(/[^a-z0-9]/ig, '').toLowerCase()) === (revNewStr = newStr.split('').reverse().join(''))) ;
+}
+
+palindrome2("race car");
+
