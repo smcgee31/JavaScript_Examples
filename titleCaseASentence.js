@@ -1,21 +1,8 @@
-// Write a function that returns a sentence title cased.
+// Write a function that returns an array of the largest numbers
+// found in the nested arrays given.
 // example:
-// "sHoRt AnD sToUt' should return as "Short And Stout"
+// [[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]
+// should return [5, 27, 39, 1001]
 
 
 // Solution #1 - mine
-function titleCase(str) {
- return str.split(' ')
-  .map(function (word) {
-    return word[0].toUpperCase() + word.substring(1).toLowerCase();
-  })
-  .join(' ');
-}
-
-titleCase("I'm a little tea pot");
-
-
-// Solution #2 - mine -- ES6
-const titleCase2 = str => str.split(' ').map(word => word[0].toUpperCase() + word.substring(1).toLowerCase()).join(' ');
-
-titleCase2("I'm a little tea pot");
