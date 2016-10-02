@@ -13,7 +13,7 @@ function slasher(arr, howMany) {
   return arr;
 }
 
-slasher([1, 2, 3], 2);
+slasher([1, 2, "chicken", 3, "potatoes", "cheese", 4], 5);
 
 
 // Solution #2 - using .splice()
@@ -24,7 +24,7 @@ function slasher2(arr, howMany) {
   return arr;
 }
 
-slasher2([1, 2, 3], 2);
+slasher2([1, 2, "chicken", 3, "potatoes", "cheese", 4], 5);
 
 
 // Solution #3 - using .slice() -- simplest!!
@@ -32,4 +32,4 @@ function slasher3(arr, howMany) {
   return arr.slice(howMany);
 }
 
-slasher3([1, 2, 3], 2);
+slasher3([1, 2, "chicken", 3, "potatoes", "cheese", 4], 5);
