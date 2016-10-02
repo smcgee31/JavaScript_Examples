@@ -1,12 +1,18 @@
-// Write a function that checks whether a passed in string parameter is
-// a Palindrome (spelled the same backwards as forwards)
+// Write a function that splits an array (first argument) into groups
+// the length of size (second argument) and returns them as a
+// two-dimensional array.
+// example:
+// chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3)
+// should return [[0, 1, 2], [3, 4, 5], [6]]
 
 
 // Solution #1 - mine
-function palindrome(str) {
-  var newStr = str.replace(/[^a-z0-9]/ig, '').toLowerCase();
-  var revNewStr = newStr.split('').reverse().join('');
-  return (newStr === revNewStr);
+function chunkArrayInGroups(arr, size) {
+	var result = [];
+	for (var i = 0; i < arr.length; i++) {
+		result = result.push(arr[0], size);
+	}
+  return result;
 }
 
-palindrome("eye");
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
