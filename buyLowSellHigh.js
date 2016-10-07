@@ -7,49 +7,55 @@
 var prices = [ 5.25, 5.35, 5.15, 5.35, 5.50, 5.75, 5.50, 5.45, 5.35, 5.15, 1.00, 4.85 ];
 
 var getProfit = function( prices ) {
-	var finalBuy = prices[0]   // 5.15
-    , finalBuyIndex = 0      //  2
-    , finalSell = prices[0]  // 5.35
-    , finalSellIndex = 0     //  3
-    , currBuy = prices[0]    // 5.15
-    , currBuyIndex = 0       //  2
-    , currSell = prices[0]   // 5.75
-    , currSellIndex = 0      //  5
-    , finalDiff = 0
-    , currDiff = 0
+	var finalBuy = prices[0]   // 5.25
+    , finalBuyIndex = 0      //  0
+    , finalSell = prices[0]  // 5.25
+    , finalSellIndex = 0     //  0
+    , currBuy = prices[0]    // 5.25
+    , currBuyIndex = 0       //  0
+    , currSell = prices[0]   // 5.35
+    , currSellIndex = 0      //  1
+    , finalDiff = 0					 //  0
+    , currDiff = 0					 // 5.25
   ;
 
 	// We have to compare the difference between a specified low and a newfound high
 	for ( var i = 1; i < prices.length; i++ ) {
-		// if a newfound high sell price comes AFTER a newfound low buy price set it as the finalBuy
-        // price and record it's index
+		// if a newfound high sell price comes AFTER a newfound low buy price set it as the finalBuy price and record it's index
 		// each number... is it a newfound high sell price?
 		//   if so... does it come AFTER an already set low buy price? (is it's index > the currBuy)
 
-		// if the price you're looking at right now is higher than the current buy price then
-        // set currBuy to that value and currBuyIndex to that index
-		if (prices[i] < currBuy) {
-			currBuy = prices[i];
-			currBuyIndex = i;
-		}
 
-		// if the price you're looking at right now is lower than the current sell price then
-        // set currSell to that value and currSellIndex to that index
-		if (prices[i] > currSell) {
+
+
+
+		// IS IT A NEW SELL PRICE?
+		// if the price you are looking at right now is larger than the currBuy && it also has the largest difference so far, then set the price equal to the currSell and set the new currDiff
+		if (prices[i] > currSell && (prices[i] - currBuy) > currDiff) {
 			currSell = prices[i];
 			currSellIndex = i;
+			currDiff = currSell - currBuy;
 		}
 
-		// if the price your're looking at right now is equal to the currSell && the index is
-        // greater than the currSell then set the currSellIndex to this index!
-		if (prices[i] === currSellIndex && i > currSellIndex) {
+		// IS IT AN EQUAL TOP SELL PRICE BUT AT A LATER TIME THAT DAY?
+		// if the price your're looking at right now is equal to the currSell && the index is greater than the currSell then set the currSellIndex to this index
+		if (prices[i] === currSell && i > currSellIndex) {
 			currSellIndex = i;
 		}
 
-        // if the currSellIndex comes after the currBuyIndex then set currDiff
-        if (currSellIndex > currBuyIndex) {
-          currDiff = currSell - currBuy;
-        }
+		// IS IT A NEW BUY PRICE?
+		// if the price you're looking at right now is < the current buy price && it also creates the largest difference so far, then set currBuy to that value and currBuyIndex to that index
+		if (prices[i] < currBuy && (currSell - prices[i]) > currDiff) {
+			currBuy = prices[i];
+			currBuyIndex = i;
+			currDiff = currSell - currBuy;
+		}
+
+
+    // if the currSellIndex comes after the currBuyIndex then set currDiff
+    if (currSellIndex > currBuyIndex) {
+      currDiff = currSell - currBuy;
+    }
 
 		// if the currDiff > finalDiff then set currSell to finalSell and the currBuy to the finalBuy
 		if (currDiff > finalDiff && currBuyIndex < currSellIndex) {
@@ -57,7 +63,7 @@ var getProfit = function( prices ) {
 			finalBuyIndex = currBuyIndex;
 			finalSell = currSell;
 			finalSellIndex = currSellIndex;
-            finalDiff = finalSell - finalBuy;
+    	finalDiff = finalSell - finalBuy;
 		}
 
 	}
