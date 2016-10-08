@@ -3,15 +3,15 @@
 //Write a solution for finding the best buy and sell point of the day for the most profit.
 // ie. buy at the low of the day and sell at the high of the day but
 // only when it makes the most profit not just any buy and sell for any profit.
-//               0     1     2     3     4     5     6     7    8     9     10
-var prices = [ 5.25, 5.35, 5.15, 5.35, 5.50, 5.75, 5.50, 5.45, 5.35, 5.15, 1.00, 4.85 ];
+//               0     1     2     3     4     5     6
+var prices = [ 5.50, 5.35, 5.75, 5.15, 5.75, 3.15, 4.85 ];
 
 var getProfit = function( prices ) {
-	var currBuy     = prices[0]
-      , currBuyIndex  = 0
-      , currSell      = prices[0]
-      , currSellIndex = 0
-      , currDiff      = 0
+	var currBuy       = 0
+    , currBuyIndex  = 0
+    , currSell      = 0
+    , currSellIndex = 0
+    , currDiff      = 0
     ;
 
 	// We have to compare the difference between a specified low and a newfound high
@@ -27,11 +27,24 @@ var getProfit = function( prices ) {
 		}
 	}
 
-  console.log(`the best buy price is ${currBuy}`);
-  console.log(`at the ${currBuyIndex} hour`);
-  console.log(`the best sell price is ${currSell}`);
-  console.log(`at the ${currSellIndex} hour`);
-  console.log(`for a max profit of ${currDiff}`);
+// the following function is simply to format the numbers as currency and lose the floating point error
+	var formater = function(n, currency) {
+    return currency + '' + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+	};
+
+	var finalBuy = formater(currBuy, '$')
+		,	finalBuyIndex = currBuyIndex
+		,	finalSell = formater(currSell, '$')
+		,	finalSellIndex = currSellIndex
+		,	finalDiff = formater(currDiff, '$')
+	;
+
+  console.log(`the best buy price is ${finalBuy}`);
+  console.log(`at the ${finalBuyIndex} hour`);
+  console.log(`the best sell price is ${finalSell}`);
+  console.log(`at the ${finalSellIndex} hour`);
+  console.log(`for a max profit of ${finalDiff}`);
 
 };
+
 getProfit(prices);
