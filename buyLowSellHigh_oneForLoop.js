@@ -3,8 +3,8 @@
 //Write a solution for finding the best buy and sell point of the day for the most profit.
 // ie. buy at the low of the day and sell at the high of the day but
 // only when it makes the most profit not just any buy and sell for any profit.
-//               0     1     2     3     4     5     6     7    8     9     10
-var prices = [ 5.25, 5.35, 5.15, 5.35, 5.50, 5.75, 5.50, 5.45, 5.35, 5.15, 1.00, 4.85 ];
+//               0     1     2     3     4     5     6
+var prices = [ 5.50, 5.35, 5.75, 5.15, 5.75, 3.15, 4.85 ];
 
 var getProfit = function( prices ) {
 	var finalBuy = prices[0]   // 5.25
