@@ -1,18 +1,34 @@
 // Write a function that splits an array (first argument) into groups
 // the length of size (second argument) and returns them as a
 // two-dimensional array.
-// example:
-// chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3)
-// should return [[0, 1, 2], [3, 4, 5], [6]]
+// examples:
+// titleCase('a clash of KINGS', 'a an the of');  returns 'A Clash of Kings'
+// titleCase('THE WIND IN THE WILLOWS', 'The In');  returns 'The Wind in the Willows'
+// titleCase('the quick brown fox');  returns 'The Quick Brown Fox'
 
 
 // Solution #1 - mine
-function chunkArrayInGroups(arr, size) {
-	var result = [];
-	for (var i = 0; i < arr.length; i++) {
-		result = result.push(arr[0], size);
-	}
-  return result;
-}
-
-chunkArrayInGroups(["a", "b", "c", "d"], 2);
+const titleCase = (title, minorWords) => {
+  if (title === '') {
+    return '';
+  }
+  if (!minorWords) {
+    let titleArr = title.split(' ');
+    return (titleArr.map(function(a) {
+      return (a.substring(0,1).toUpperCase()) + (a.substring(1).toLowerCase());
+    })).join(' ');
+  }
+  let minorWordsArr = minorWords.split(' ');
+  let titleArr = title.split(' ');
+  let allFirst = titleArr.map(function(a) {
+    return (a.substring(0,1).toUpperCase()) + (a.substring(1).toLowerCase());
+  });
+  for (let i = 1; i < allFirst.length; i++) {
+    for (let j = 0; j < minorWordsArr.length; j++) {
+        if (allFirst[i].toLowerCase() === minorWordsArr[j].toLowerCase()) {
+          allFirst[i] = minorWordsArr[j].toLowerCase();  
+        }
+    }
+  } 
+  return allFirst.join(' ');
+};
