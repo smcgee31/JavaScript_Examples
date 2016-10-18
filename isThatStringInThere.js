@@ -12,15 +12,19 @@
 
 
 // Solution #1 - mine
-function inArray(array1,array2){
-  var r = [];
+function inArray(a1,a2){
+  var result = [];
   for (var i = 0; i < a1.length; i++) {
     for (var j = 0; j < a2.length; j++) {
-      if (a2[j].substring(a2.length - a1.length) === a1[i]) {
-        r.push(a1)  // but what when it gets pushed again and there is two or more of the same string?
+      var re = new RegExp(a1[i], 'gi');
+      if (re.test(a2[j])) {
+        if (result.indexOf(a1[i]) === -1) {
+          result.push(a1[i]);
+        }
       }
     }
   }
-  
-  
+  return result;
 }
+
+inArray(["live", "mice", "mstro", "ong"], ["lively", "alive", "harp", "sharp", "armstrong"]); //returns [ 'live', 'mstro', 'ong' ]
