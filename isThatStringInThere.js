@@ -17,14 +17,36 @@ function inArray(a1,a2){
   for (var i = 0; i < a1.length; i++) {
     for (var j = 0; j < a2.length; j++) {
       var re = new RegExp(a1[i], 'gi');
-      if (re.test(a2[j])) {
+      if (typeof a1[i] === 'string' && re.test(a2[j])) {  //using typeof tests out the input so that anything other than a string gets ignored
         if (result.indexOf(a1[i]) === -1) {
           result.push(a1[i]);
         }
       }
     }
   }
-  return result;
+  return result.sort();
 }
 
 inArray(["live", "mice", "mstro", "ong"], ["lively", "alive", "harp", "sharp", "armstrong"]); //returns [ 'live', 'mstro', 'ong' ]
+
+
+// Solution #2 - wow, love this code...
+// and I guess it doesn't care about inputs other than strings? 
+function inArray(arr1, arr2) {
+  return arr1.filter(function(needle) {
+    return arr2.some(function(haystack) {
+      return haystack.indexOf(needle) > -1;
+    });
+  }).sort();
+}
+
+
+// Solution #3 - done in a single for-loop!
+// and it looks at the problem in the reverse direction from how I looked at it. (I think)
+function inArray(a1,a2){
+  var output = [];
+  for (var i = 0; i < a1.length; i++) 
+   if (a2.toString().indexOf(a1[i]) != -1 && output.indexOf(a1[i]) == -1) output.push(a1[i]);
+  return output.sort();
+}
+
