@@ -37,4 +37,5 @@ var car = {
 
 for (var prop in car) {
     console.log(prop);
+    console.log(car[prop]);
 }

@@ -10,7 +10,7 @@ function fib(len){
     for (var i = 0; i < len - 1; i++) {
         result = prevNum + newNum;
         seq.push(result);
-        prevNum = newNum
+        prevNum = newNum;
         newNum = result;
     }
 }

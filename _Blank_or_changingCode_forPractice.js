@@ -1,26 +1,18 @@
-// Write a function that Given two arrays of strings a1 and a2 
-//return a sorted array r in lexicographical order of the strings 
-// of a1 which are substrings of strings of a2.
-// examples:
-// a1 = ["arp", "live", "strong"]
-// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-// returns ["arp", "live", "strong"]
-// example 2:
-// a1 = ["tarp", "mice", "bull"]
-// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-// returns []
+// One of the simplest and most widely known ciphers is a Caesar cipher, also known 
+// as a shift cipher. In a shift cipher the meanings of the letters are shifted by 
+// some set amount.
+// A common modern use is the ROT13 cipher, where the values of the letters are 
+// shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
+//Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+// All letters will be uppercase. Do not transform any non-alphabetic character 
+// (i.e. spaces, punctuation), but do pass them on.
 
 
 // Solution #1 - mine
-function inArray(array1,array2){
-  var r = [];
-  for (var i = 0; i < a1.length; i++) {
-    for (var j = 0; j < a2.length; j++) {
-      if (a2[j].substring(a2.length - a1.length) === a1[i]) {
-        r.push(a1)  // but what when it gets pushed again and there is two or more of the same string?
-      }
-    }
-  }
-  
-  
+function rot13(str) { // LBH QVQ VG!
+	
+	return str;
 }
+
+// Change the inputs below to test
+rot13("SERR PBQR PNZC");
